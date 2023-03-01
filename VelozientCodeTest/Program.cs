@@ -14,7 +14,7 @@ public static class Program
 
         // get the configuration values in the section.
         var inputFilePath = configSection["InputFilePath"] ?? null;
-        var OutputFilePath = configSection["OutputFilePath"] ?? null;
+        var outputFilePath = configSection["OutputFilePath"] ?? null;
 
         if (string.IsNullOrEmpty(inputFilePath))
         {
@@ -54,7 +54,7 @@ public static class Program
         List<Delivery> deliveries = OptimizeDeliveries(drones, locations);
 
         // Create OuputFIles
-        using (StreamWriter writer = new StreamWriter(OutputFilePath))
+        using (StreamWriter writer = new StreamWriter(outputFilePath))
         {
             writer.WriteLine("***BEGIN OUTPUT FILE #1***");
             foreach (var delivery in deliveries.OrderBy(x => x.DroneName))
